@@ -1,0 +1,42 @@
+package arrays;
+
+import java.util.HashSet;
+import java.util.Set;
+
+// https://leetcode.com/problems/contains-duplicate/description/
+/*
+Example 1:
+Input: nums = [1,2,3,1]
+Output: true
+Explanation:
+The element 1 occurs at the indices 0 and 3.
+
+Example 2:
+Input: nums = [1,2,3,4]
+Output: false
+Explanation:
+All elements are distinct.
+
+Example 3:
+Input: nums = [1,1,1,3,3,4,3,2,4,2]
+Output: true
+ */
+public class ContainsDuplicate {
+    public static void main(String[] args) {
+        int[] nums = {1, 2, 3, 1};
+        System.out.println(containsDuplicate(nums));
+    }
+
+    public static boolean containsDuplicate(int[] nums) {
+        Set<Integer> unique = new HashSet<>();
+        for (int num : nums) {
+//            true → if element was NOT present
+//            false → if element already exists
+            if (!unique.add(num))
+                return true;
+        }
+        return false;
+    }
+
+}
+
